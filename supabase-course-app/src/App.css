@@ -28,14 +28,35 @@ body {
 }
 
 
-/* Navigation - Boxy & Full-width */
+/* Navigation - Boxy, Full-width, Sticky */
 nav {
   background-color: #2D3748; /* Secondary Background */
-  padding: 1rem 0;
+  padding: 1rem 0; /* Vertical padding, horizontal will be handled by ul or body padding */
   border-radius: 0; /* Boxy */
-  margin-bottom: 2rem;
-  border: 1px solid #4A5568; /* Border for definition */
+  /* margin-bottom: 2rem; Removed as sticky positioning takes it out of normal flow calculation for margin */
+  border-bottom: 1px solid #4A5568; /* Border for definition, removed side borders */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%; /* Ensure it spans full width if its parent isn't already full viewport width */
 }
+
+/* Adjust body padding to account for sticky nav height */
+/* This might need tweaking based on actual nav height */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  /* padding: 20px; original */
+  padding-top: calc(2rem + 34px); /* Approx nav height (1rem padding + line height + 1rem padding) + some buffer. Inspect to get exact height */
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  background-color: #1A202C; /* Primary Background */
+  color: #E2E8F0; /* Primary Text */
+}
+
 
 nav ul {
   list-style-type: none;
@@ -61,12 +82,16 @@ nav ul li a:hover, nav ul li a.active {
   border-color: #718096;
 }
 
-/* Content Area - Boxy */
+/* Content Area - Boxy & Centered */
 .content {
   background-color: #2D3748; /* Secondary Background */
   padding: 2rem;
   border-radius: 0; /* Boxy */
-  border: 1px solid #4A5568; /* Border for definition */
+  border-left: 1px solid #4A5568; /* Keep side borders for definition if desired */
+  border-right: 1px solid #4A5568;
+  /* border-top and border-bottom can be removed if nav/footer handle that visually */
+  max-width: 1140px; /* Or 960px, 1280px etc. */
+  margin: 2rem auto; /* Adds top/bottom margin and centers horizontally */
 }
 
 /* Headings */
@@ -87,10 +112,10 @@ h3 {
 /* Forms - Boxy */
 form {
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  background-color: #1A202C; /* Primary Background (slightly different from content for depth) */
-  border: 1px solid #4A5568; /* Border */
-  border-radius: 0; /* Boxy */
+  padding: 1.5rem; /* Keep padding for internal spacing */
+  /* background-color: #1A202C; Removed */
+  /* border: 1px solid #4A5568; Removed */
+  border-radius: 0; /* Keep if other elements are boxy, or remove if not needed */
 }
 
 form div {
@@ -205,12 +230,20 @@ ul[style*="list-style: none"] {
 }
 
 ul[style*="list-style: none"] li {
-  background-color: #1A202C; /* Primary Background (slightly different from content for depth) */
-  border: 1px solid #4A5568; /* Border */
-  padding: 1rem 1.5rem;
+  /* background-color: #1A202C; Removed */
+  /* border: 1px solid #4A5568; Removed */
+  padding: 1rem 0; /* Adjust padding, likely more vertical now */
   margin-bottom: 1rem;
-  border-radius: 0; /* Boxy */
+  border-bottom: 1px solid #4A5568; /* Add a bottom border for separation instead of a full box */
+  border-radius: 0; /* Keep if other elements are boxy */
 }
+
+/* Remove bottom border from the last list item to avoid double border if list is followed by HR or another section */
+ul[style*="list-style: none"] li:last-child {
+  border-bottom: none;
+  margin-bottom: 0; /* Optional: remove margin if no border */
+}
+
 
 ul[style*="list-style: none"] li h4 {
   margin-top: 0;
