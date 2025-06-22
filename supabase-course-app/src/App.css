@@ -1,12 +1,12 @@
-/* Global Styles */
+/* Global Styles - Dark Theme & Boxy Design */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #f7fafc;
-  color: #2d3748;
+  background-color: #1A202C; /* Primary Background */
+  color: #E2E8F0; /* Primary Text */
 }
 
 #root {
@@ -15,12 +15,13 @@ body {
   padding: 20px;
 }
 
-/* Navigation */
+/* Navigation - Boxy */
 nav {
-  background-color: #2d3748;
+  background-color: #2D3748; /* Secondary Background */
   padding: 1rem 0;
-  border-radius: 8px;
+  border-radius: 0; /* Boxy */
   margin-bottom: 2rem;
+  border: 1px solid #4A5568; /* Border for definition */
 }
 
 nav ul {
@@ -32,48 +33,50 @@ nav ul {
 }
 
 nav ul li a {
-  color: white;
+  color: #E2E8F0; /* Primary Text */
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   display: block;
-  border-radius: 4px;
+  border-radius: 0; /* Boxy */
   transition: background-color 0.2s ease-in-out;
+  border: 1px solid transparent; /* Placeholder for hover/active border */
 }
 
 nav ul li a:hover, nav ul li a.active {
-  background-color: #4a5568;
+  background-color: #4A5568; /* Tertiary Background */
+  border-color: #718096;
 }
 
-/* Content Area */
+/* Content Area - Boxy */
 .content {
-  background-color: #ffffff;
+  background-color: #2D3748; /* Secondary Background */
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 0; /* Boxy */
+  border: 1px solid #4A5568; /* Border for definition */
 }
 
 /* Headings */
 h2 {
-  color: #2c5282;
-  border-bottom: 2px solid #e2e8f0;
+  color: #90CDF4; /* Lighter blue for dark theme */
+  border-bottom: 2px solid #4A5568; /* Border color */
   padding-bottom: 0.5rem;
-  margin-top: 0; /* Reset margin for h2 if it's the first element */
+  margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
 h3 {
-  color: #2b6cb0;
+  color: #63B3ED; /* Slightly darker blue */
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-/* Forms */
+/* Forms - Boxy */
 form {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background-color: #f7fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  background-color: #1A202C; /* Primary Background (slightly different from content for depth) */
+  border: 1px solid #4A5568; /* Border */
+  border-radius: 0; /* Boxy */
 }
 
 form div {
@@ -84,7 +87,7 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #4a5568;
+  color: #A0AEC0; /* Secondary Text */
 }
 
 input[type='email'],
@@ -93,14 +96,29 @@ input[type='text'],
 textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #cbd5e0;
-  border-radius: 4px;
+  border: 1px solid #4A5568; /* Border */
+  border-radius: 0; /* Boxy */
   box-sizing: border-box;
   font-size: 1rem;
+  background-color: #4A5568; /* Tertiary Background for inputs */
+  color: #E2E8F0; /* Primary Text */
 }
+
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='text']:focus,
+textarea:focus {
+  border-color: #3182CE; /* Accent color on focus */
+  outline: none; /* Remove default outline */
+}
+
 
 input[type='file'] {
   padding: 0.5rem;
+  border: 1px solid #4A5568;
+  background-color: #4A5568;
+  color: #E2E8F0;
+  border-radius: 0;
 }
 
 textarea {
@@ -108,126 +126,135 @@ textarea {
   resize: vertical;
 }
 
-/* Buttons */
+/* Buttons - Boxy */
 button {
-  background-color: #3182ce;
-  color: white;
+  background-color: #3182CE; /* Accent Color */
+  color: #FFFFFF; /* White text on accent */
   padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
+  border: 1px solid #3182CE; /* Accent border */
+  border-radius: 0; /* Boxy */
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 button:hover {
-  background-color: #2b6cb0;
+  background-color: #2B6CB0; /* Darker Accent */
+  border-color: #2B6CB0;
 }
 
 button:disabled {
-  background-color: #a0aec0;
+  background-color: #718096; /* Muted gray */
+  border-color: #718096;
+  color: #A0AEC0;
   cursor: not-allowed;
 }
 
 button[type="button"] { /* Specific for cancel/secondary buttons */
-  background-color: #718096;
+  background-color: #4A5568; /* Tertiary Background */
+  border-color: #4A5568;
+  color: #E2E8F0;
 }
 button[type="button"]:hover {
-  background-color: #4a5568;
+  background-color: #718096; /* Muted gray on hover */
+  border-color: #718096;
 }
 
 
-/* Messages and Alerts */
-p[style*="color: red"], p[style*="color: green"] { /* Targeting inline styles from components */
+/* Messages and Alerts - Boxy */
+p[style*="color: red"], p[style*="color: green"] {
   padding: 0.75rem;
   margin: 1rem 0;
-  border-radius: 4px;
+  border-radius: 0; /* Boxy */
   font-weight: 500;
+  border-width: 1px;
+  border-style: solid;
 }
 
-p[style*="color: red"] {
-  background-color: #fed7d7;
-  color: #c53030 !important; /* Important to override inline style color for text */
-  border: 1px solid #f56565;
+p[style*="color: red"] { /* Error messages */
+  background-color: #4A2424; /* Dark red background */
+  color: #FEB2B2 !important; /* Light red text */
+  border-color: #F56565; /* Red border */
 }
 
-p[style*="color: green"] {
-  background-color: #c6f6d5;
-  color: #2f855a !important; /* Important to override inline style color for text */
-  border: 1px solid #38a169;
+p[style*="color: green"] { /* Success messages */
+  background-color: #1C4532; /* Dark green background */
+  color: #9AE6B4 !important; /* Light green text */
+  border-color: #38A169; /* Green border */
 }
 
 
-/* Lists (for notes and files) */
-ul[style*="list-style: none"] { /* Targeting inline styles from components */
+/* Lists (for notes and files) - Boxy */
+ul[style*="list-style: none"] {
   padding: 0;
 }
 
 ul[style*="list-style: none"] li {
-  background-color: #fff;
-  border: 1px solid #e2e8f0;
+  background-color: #1A202C; /* Primary Background (slightly different from content for depth) */
+  border: 1px solid #4A5568; /* Border */
   padding: 1rem 1.5rem;
   margin-bottom: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 0; /* Boxy */
 }
 
 ul[style*="list-style: none"] li h4 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: #2c5282;
+  color: #90CDF4; /* Lighter blue */
 }
 
 ul[style*="list-style: none"] li p {
   margin-bottom: 0.5rem;
-  color: #4a5568;
+  color: #A0AEC0; /* Secondary Text */
 }
 
 ul[style*="list-style: none"] li small {
-  color: #718096;
+  color: #718096; /* Muted gray */
   font-size: 0.875rem;
 }
 
-ul[style*="list-style: none"] li div[style*="margin-top: 10px"] button { /* Targeting action buttons in list items */
+ul[style*="list-style: none"] li div[style*="margin-top: 10px"] button {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   margin-right: 0.5rem;
 }
 
-/* File upload progress */
+/* File upload progress - Dark Theme */
 progress {
   width: 100%;
   height: 10px;
   margin-top: 0.5rem;
-  border-radius: 5px;
+  border-radius: 0; /* Boxy */
+  border: 1px solid #4A5568;
+  background-color: #1A202C; /* Match form background */
 }
 progress::-webkit-progress-bar {
-  background-color: #e2e8f0;
-  border-radius: 5px;
+  background-color: #2D3748; /* Slightly lighter than track for contrast */
+  border-radius: 0;
 }
 progress::-webkit-progress-value {
-  background-color: #3182ce;
-  border-radius: 5px;
+  background-color: #3182CE; /* Accent Color */
+  border-radius: 0;
   transition: width 0.2s ease;
 }
 progress::-moz-progress-bar { /* Firefox */
-  background-color: #3182ce;
-  border-radius: 5px;
+  background-color: #3182CE; /* Accent Color */
+  border-radius: 0;
   transition: width 0.2s ease;
 }
 
 
-/* Horizontal Rule */
+/* Horizontal Rule - Dark Theme */
 hr {
   border: none;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #4A5568; /* Border color */
   margin: 2rem 0;
 }
 
 /* Utility for small text or captions */
 .caption {
   font-size: 0.875rem;
-  color: #718096;
+  color: #718096; /* Muted gray */
   margin-top: 0.5rem;
 }
